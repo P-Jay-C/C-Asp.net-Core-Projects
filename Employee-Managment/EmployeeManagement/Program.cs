@@ -55,10 +55,18 @@ try
         }
         ).AddXmlSerializerFormatters();
 
+    builder.Services.AddAuthentication().AddGoogle(googleOptions =>
+    {
+        googleOptions.ClientId = "414450217003-75fl223a2v18b5cdf2lvb0i34cjchq3c.apps.googleusercontent.com";
+        googleOptions.ClientSecret = "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";
+    });
+
     builder.Services.ConfigureApplicationCookie(options =>
     {
         options.AccessDeniedPath = new PathString("/Administration/AccessDenied");
     });
+
+
 
     // User Authorization claims
 

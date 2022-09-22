@@ -1,0 +1,17 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <div @*class="mainText"*@>
+        <h2 class="display-6 text-capitalize">Welcome to Cheezy Pizza</h2>
+        <h5 class="text-dark mainSubtitle">The best for us all!!!</h5>
+    </div>
+    <img class="mainImage" src="~/images/pizzadelivery.jpg"/>
+    <br/>
+
+    <a class="btn btn-primary mt-1 " asp-area="" asp-page="Checkout/ThankYou"> GET ME A PIZZA</a>
+
+</div>
