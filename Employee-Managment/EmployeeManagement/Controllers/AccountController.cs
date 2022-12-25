@@ -104,6 +104,8 @@ namespace EmployeeManagement.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> ExternalLoginCallback(string? returnUrl, string? remoteError)
         {
+            var info = await _signInManager.GetExternalLoginInfoAsync();
+
             returnUrl = returnUrl ?? Url.Content("~/");
 
             LoginViewModel loginViewModel = new LoginViewModel
@@ -120,9 +122,7 @@ namespace EmployeeManagement.Controllers
 
                 return View("Login", loginViewModel);
             }
-
-            // Get the login information about the user from the external login provider
-            var info = await _signInManager.GetExternalLoginInfoAsync();
+            
             if (info == null)
             {
                 ModelState
@@ -193,6 +193,7 @@ namespace EmployeeManagement.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel model,string? returnUrl)
         {
+            model.ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
             if (ModelState.IsValid)
             {

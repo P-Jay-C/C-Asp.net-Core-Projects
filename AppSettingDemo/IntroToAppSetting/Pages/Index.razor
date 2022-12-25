@@ -1,0 +1,36 @@
+﻿@page "/"
+@inject IConfiguration Configuration
+
+
+<PageTitle>Index</PageTitle>
+
+<p>
+    MySetting Value: @mySetting
+</p>
+
+<p>
+    Sub Setting value: @subSeting
+</p> 
+
+<p>
+    Connection String Value: @connectionString
+</p
+><p>
+    Connection String Value: @connectionString
+</p>
+
+@code
+{
+    string mySetting = "";
+    string subSeting = "";
+    string connectionString = "";
+
+    protected override void OnInitialized()
+    {
+        mySetting = Configuration.GetValue<string>("MySetting");
+        subSeting = Configuration.GetValue<string>("MainSetting:SubSetting");
+        //connectionString = Configuration.GetValue<string>("ConnectionStrings:Default");
+        connectionString = Configuration.GetConnectionString("Default");
+
+    }
+}

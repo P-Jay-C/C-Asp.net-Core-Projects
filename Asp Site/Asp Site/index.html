@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html ng-app="myModule">
+<head>
+    <meta charset="utf-8" />
+    <title> AngularJS Tutorial</title>
+
+    <script src="angular.min.js"></script>
+    <script src="Script.js"></script>
+    
+</head>
+
+
+
+<body>
+    <h1> Welcome  Everyone!!!</h1>
+
+
+<div ng-controller="myController">
+    {{message}}
+</div> 
+    
+<br/>
+
+<div ng-controller="myController">
+    <ul ng-repeat="country in countries">
+        <li>
+             {{country.name}} Index = {{$index}}
+            <ul>
+                <li ng-repeat="city in country.cities">
+                    {{city.name}} ; Parent-Index = {{$parent.$index}}, index = {{$index}}
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

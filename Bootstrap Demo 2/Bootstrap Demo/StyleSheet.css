@@ -1,0 +1,23 @@
+﻿.sidebarContent {
+    background-color: silver;
+    text-align: center;
+    font-size: large;
+    min-height: 150px;
+    margin-bottom: 10px;
+}
+
+.mainContent {
+    background-color: silver;
+    text-align: center;
+    font-size: large;
+    min-height: 310px;
+}
+
+.Cus {
+    padding: 10px;
+}
+
+hr {
+    border: 1px solid red;
+}
+
